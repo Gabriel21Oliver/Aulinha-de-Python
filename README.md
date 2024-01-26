@@ -1,22 +1,43 @@
 # Aulinha-de-Python
-só o básico 
+import math
 
-# comandos inicias
-print("OlaMundo")
-nome = input('Qual seu nome?')
-print('Bem vindo e um prazer te conhecer,', nome)
-n1 = int(input('digite um valor'))
-n2 = int(input('digite outro valor'))
-soma = n1+n2
+def calculadora_cientifica():
+    print("Calculadora Científica Simples")
+    print("Operações disponíveis: +, -, *, /, sqrt, sin, cos, tan, log")
 
-print('a soma entre {} e{} é{}'.format(n1, n2, soma))
+    while True:
+        try:
+            operacao = input("Digite a operação (ou 'sair' para encerrar): ").lower()
 
-# tipos de informaçoes 
+            if operacao == 'sair':
+                print("Calculadora encerrada.")
+                break
 
-nome = input('digite algo'),
-print('o tipo primitivo é', type(nome))
-print('so tem espaço?', nome.isspace())
-print('tem numeros inteiros?', nome.isnumeric())
-print('tem palavras?', nome.isalpha())
-print(' isso e boleano?', nome.isprintable())
-print('é alfa numerico?', nome.isalnum())
+            if operacao in ('sqrt', 'sin', 'cos', 'tan', 'log'):
+                numero = float(input("Digite o número: "))
+                resultado = getattr(math, operacao)(numero)
+            else:
+                numero1 = float(input("Digite o primeiro número: "))
+                numero2 = float(input("Digite o segundo número: "))
+
+                if operacao == '+':
+                    resultado = numero1 + numero2
+                elif operacao == '-':
+                    resultado = numero1 - numero2
+                elif operacao == '*':
+                    resultado = numero1 * numero2
+                elif operacao == '/':
+                    resultado = numero1 / numero2
+                else:
+                    print("Operação inválida.")
+                    continue
+
+            print("Resultado:", resultado)
+
+        except ValueError:
+            print("Por favor, insira números válidos.")
+        except ZeroDivisionError:
+            print("Divisão por zero não é permitida.")
+
+if __name__ == "__main__":
+    calculadora_cientifica()
