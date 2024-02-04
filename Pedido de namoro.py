@@ -5,7 +5,7 @@ from tkinter import messagebox
 
 def exibir_resposta(resposta):
     if resposta.lower() == "sim":
-        messagebox.showinfo("Resposta", "Yay! 💖\nEspero que seja o início de algo maravilhoso!")
+        messagebox.showinfo("Resposta", "Opaaaaa! 💖\nEspero que seja o início de algo maravilhoso!")
     else:
         messagebox.showinfo("Resposta", "Oh, entendi. Se precisar de tempo para pensar, tudo bem. 😊")
 
